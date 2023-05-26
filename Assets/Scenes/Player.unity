@@ -206,7 +206,7 @@ MonoBehaviour:
   hitInput: {fileID: 804211220}
   startEntityStats:
     <Health>k__BackingField: 0
-    <Speed>k__BackingField: 1
+    <Speed>k__BackingField: 3
     <AttackRate>k__BackingField: 0
     <Damage>k__BackingField: 0
     <KnockBack>k__BackingField: 0
@@ -372,7 +372,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

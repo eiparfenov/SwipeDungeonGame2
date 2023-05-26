@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using Shared;
 using UnityEngine;
 
-namespace Maze.Generation
+namespace Maze
 {
     [Serializable]
     public class MazeCell
     {
         [field: SerializeField] public Vector2Int Position { get; init; }
-        [field: SerializeField] public List<Side> Gates { get; private set; } 
+        [field: SerializeField] public List<Side> Gates { get; init; } 
         [field: SerializeField] public int Depth { get; init; }
         #region RelativePositioning
 

@@ -22,12 +22,10 @@ namespace Inputs
             var direction = eventData.position - _dragStartPosition;
             if(direction.magnitude < 50f)
             {
-                Debug.Log("Attack");
                 onAttack?.Invoke();
                 return;
             }
             direction = direction.SelectHorizontalVerticalAxis();
-            Debug.Log(direction);
             onDirectionChange?.Invoke(direction);
         }
     }

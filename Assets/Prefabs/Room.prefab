@@ -540,6 +540,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5675298444250687060}
+  - component: {fileID: 2335907494736244220}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -562,6 +563,19 @@ Transform:
   m_Father: {fileID: 5675298444955884899}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2335907494736244220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5675298444250687063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f283004dc0894a879255d8e6499428fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 0}
 --- !u!1 &5675298444354721947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,6 +1395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5675298444955884899}
+  - component: {fileID: 9040791332342577921}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -1408,6 +1423,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9040791332342577921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5675298444955884898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers: []
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
 --- !u!1 &5675298444993235396
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Infrastructure.MazeInstallers
 {
-    public class RoomInstaller: Installer<RoomCreationDto, RoomInstaller>
+    public class RoomInstaller: MonoInstaller
     {
         private readonly RoomCreationDto _creationDto;
 
@@ -16,7 +16,7 @@ namespace Infrastructure.MazeInstallers
 
         public override void InstallBindings()
         {
-            Container.Bind<RoomInfo>().FromInstance(_creationDto.RoomInfo).AsCached();
+            Container.Bind<RoomInfo>().FromMethod(() => _creationDto.RoomInfo).AsCached();
             Container.Bind<Transform>().FromComponentOnRoot().AsCached();
             Container.Bind<RoomBackground>().FromComponentInHierarchy().AsCached();
             Container.Bind<RoomSide>().FromComponentsInHierarchy().AsCached();

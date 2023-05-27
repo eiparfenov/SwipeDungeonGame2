@@ -43,5 +43,17 @@ namespace Shared
         }
 
         public static IEnumerable<Side> AllSides => new[] { Side.Top, Side.Right, Side.Bottom, Side.Left };
+
+        public static bool IsHorizontal(this Side side)
+        {
+            return side switch
+            {
+                Side.Top => false,
+                Side.Right => true,
+                Side.Bottom => false,
+                Side.Left => true,
+                _ => throw new ArgumentOutOfRangeException(nameof(side), side, null)
+            };
+        }
     }
 }

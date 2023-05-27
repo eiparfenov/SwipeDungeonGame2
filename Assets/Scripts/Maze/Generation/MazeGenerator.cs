@@ -29,8 +29,8 @@ namespace Maze.Generation
                 possibleToCreate.Remove(cellToCreate);
                 created.Add(cellToCreate);
                 
-                cellToCreate.Gates.Add(cellToCreate.SideToAdd.Opposite());
-                cellToCreate.Parent.Gates.Add(cellToCreate.SideToAdd);
+                //cellToCreate.Gates.Add(cellToCreate.SideToAdd.Opposite());
+                //cellToCreate.Parent.Gates.Add(cellToCreate.SideToAdd);
                 
                 AddPossibleCells(cellToCreate, possibleToCreate);
             }

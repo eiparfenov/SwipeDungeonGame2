@@ -24,5 +24,13 @@ namespace Utils.Extensions
 
             return sourceArr[selectedIdx];
         }
+
+        public static void Foreach<T>(this IEnumerable<T> source, Action<T> action)
+        {
+            foreach (var t in source)
+            {
+                action(t);
+            }
+        }
     }
 }

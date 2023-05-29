@@ -1,11 +1,12 @@
 ﻿using Maze.Components;
 using Maze.Rooms;
 using UnityEngine;
+using Utils.ZenjectExtras;
 using Zenject;
 
 namespace Infrastructure.MazeInstallers
 {
-    public class RoomInstaller: MonoInstaller
+    public class RoomInstaller: Installer<RoomCreationDto, RoomInstaller>
     {
         private readonly RoomCreationDto _creationDto;
 
@@ -17,11 +18,12 @@ namespace Infrastructure.MazeInstallers
         public override void InstallBindings()
         {
             Container.Bind<RoomInfo>().FromMethod(() => _creationDto.RoomInfo).AsCached();
-            Container.Bind<Transform>().FromComponentOnRoot().AsCached();
+            Container.AddCancellationTokenFromTransformOnRoot();
             Container.Bind<RoomBackground>().FromComponentInHierarchy().AsCached();
             Container.Bind<RoomSide>().FromComponentsInHierarchy().AsCached();
             Container.BindInterfacesAndSelfTo<RoomCustomizer>().AsCached();
-            Container.Bind<Room>().AsCached();
+            Container.BindInterfacesAndSelfTo<Room>().AsCached();
+            Container.AddZenjectDynamicInterfaces();
         }
     }
 }

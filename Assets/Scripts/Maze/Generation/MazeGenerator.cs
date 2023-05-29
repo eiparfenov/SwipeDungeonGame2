@@ -21,7 +21,7 @@ namespace Maze.Generation
             
             var startCell = new GenerationMazeCell() { Depth = 0, Position = Vector2Int.zero, Parent = null };
             created.Add(startCell);
-            AddPossibleCells(startCell, possibleToCreate);
+            AddPossibleCells(startCell, possibleToCreate, created);
 
             for (int cell = 0; cell < _settings.RoomsCount - 1; cell++)
             {
@@ -29,12 +29,12 @@ namespace Maze.Generation
                 possibleToCreate.Remove(cellToCreate);
                 created.Add(cellToCreate);
                 
-                //cellToCreate.Gates.Add(cellToCreate.SideToAdd.Opposite());
-                //cellToCreate.Parent.Gates.Add(cellToCreate.SideToAdd);
+                cellToCreate.Gates.Add(cellToCreate.SideToAdd.Opposite());
+                cellToCreate.Parent?.Gates.Add(cellToCreate.SideToAdd);
                 
-                AddPossibleCells(cellToCreate, possibleToCreate);
+                AddPossibleCells(cellToCreate, possibleToCreate, created);
             }
-
+            Debug.Log("Created");
             return created;
         }
 
@@ -59,13 +59,14 @@ namespace Maze.Generation
             });
             return rooms.ToList();
         }
-        private void AddPossibleCells(GenerationMazeCell addedCell, List<GenerationMazeCell> possibleToCreate)
+
+        private void AddPossibleCells(GenerationMazeCell addedCell, List<GenerationMazeCell> possibleToCreate, List<MazeCell> created)
         {
             foreach (var side in SideExtensions.AllSides)
             {
                 var newPosition = addedCell.Position + side.SideDirectionsInt();
-                if (possibleToCreate.Any(cell => cell.Position == newPosition)) continue;
-                possibleToCreate.Add(new GenerationMazeCell() { Depth = addedCell.Depth + 1, Position = newPosition, SideToAdd = side});
+                if (possibleToCreate.Any(cell => cell.Position == newPosition) || created.Any(cell => cell.Position == newPosition)) continue;
+                possibleToCreate.Add(new GenerationMazeCell() { Depth = addedCell.Depth + 1, Position = newPosition, SideToAdd = side, Parent = addedCell});
             }
         }
         private class GenerationMazeCell : MazeCell

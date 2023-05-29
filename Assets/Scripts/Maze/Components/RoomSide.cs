@@ -1,3 +1,4 @@
+using System;
 using Shared;
 using UnityEngine;
 
@@ -11,8 +12,9 @@ namespace Maze.Components
         [SerializeField] private SpriteRenderer gateTop;
         [SerializeField] private Collider2D doorCollider;
         [field: SerializeField] public Side Side { get; private set; }
-        
-        
+
+        public event Action<Side> onRoomExit;
+
         public void SetWall(Sprite wallSprite)
         {
             wall.sprite = wallSprite;
@@ -32,6 +34,12 @@ namespace Maze.Components
         {
             gateDoor.enabled = !opened;
             doorCollider.enabled = !opened;
+        }
+
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            onRoomExit?.Invoke(Side);
+            Debug.Log($"Exited {Side}");
         }
     }
 }

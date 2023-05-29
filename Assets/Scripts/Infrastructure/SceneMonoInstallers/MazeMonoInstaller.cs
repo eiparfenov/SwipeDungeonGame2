@@ -21,11 +21,11 @@ namespace Infrastructure.SceneMonoInstallers
             
             Container.BindFactory<RoomCreationDto, Room, RoomFactory>()
                 .FromSubContainerResolve()
-                .ByNewContextPrefab<RoomInstaller>(roomPref)
+                .ByNewPrefabInstaller<RoomInstaller>(roomPref)
                 .UnderTransformGroup("Rooms");
             
             Container.BindInterfacesAndSelfTo<MazeGenerator>().AsCached();
-            Container.BindInterfacesAndSelfTo<RoomsLoader>().AsCached().NonLazy();
+            Container.BindInterfacesAndSelfTo<MazeMainLoop>().AsCached().NonLazy();
         }
     }
 }

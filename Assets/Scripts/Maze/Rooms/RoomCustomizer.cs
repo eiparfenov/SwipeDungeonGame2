@@ -25,16 +25,16 @@ namespace Maze.Rooms
 
         public void Initialize()
         {
-            Debug.Log("Initialized");
             for (int i = 0; i < 4; i++)
             {
                 var roomSide = _roomSides[i];
-                roomSide.SetWall(roomSide.Side.IsHorizontal()?
+                roomSide.SetWall(!roomSide.Side.IsHorizontal()?
                     _mazeTheme.VerticalDoors[_roomInfo.SelectedWall[i]]:
                     _mazeTheme.HorizontalDoors[_roomInfo.SelectedWall[i]]);
                 if (_roomInfo.Gates.Contains(roomSide.Side))
                 {
-                    
+                    var roomGateId = _roomInfo.SelectedGate[i];
+                    roomSide.SetGate(_mazeTheme.GateBottoms[roomGateId], _mazeTheme.GateDoors[roomGateId], _mazeTheme.GateTops[roomGateId]);
                 }
             }
         }

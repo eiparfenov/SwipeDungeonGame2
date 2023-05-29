@@ -472,6 +472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <TriggersSpikesTrap>k__BackingField: 1
+  <TriggersSawTrap>k__BackingField: 1
 --- !u!114 &804211222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,6 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21df577de10c4ddfb3f3212a7cff2d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EntityType>k__BackingField: 0
 --- !u!1 &1821361270
 GameObject:
   m_ObjectHideFlags: 0

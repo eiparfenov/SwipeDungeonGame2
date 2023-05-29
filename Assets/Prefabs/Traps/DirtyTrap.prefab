@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2741458880898631452}
   - component: {fileID: 2741458880898631451}
-  - component: {fileID: 2741458880898631453}
   - component: {fileID: 2741458880898631454}
+  - component: {fileID: 8500603920681826846}
   m_Layer: 0
   m_Name: DirtyTrap
   m_TagString: Untagged
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2741458880898631453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2741458880898631450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5f4d5b1e30f4413a90a53c62eee29f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedK: 0.3
 --- !u!61 &2741458880898631454
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -125,3 +112,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8500603920681826846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2741458880898631450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f4d5b1e30f4413a90a53c62eee29f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedGuid: 81f027da-3a73-43a0-bf13-1e5c5b2b5c58
+  speedK: 0.3

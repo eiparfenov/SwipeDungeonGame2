@@ -1,6 +1,6 @@
 ﻿namespace Traps.Interfaces
 {
-    public interface ISpiresTrapHandler
+    public interface ISpikesTrapHandler
     {
         bool TriggersSpikesTrap { get; }
     }

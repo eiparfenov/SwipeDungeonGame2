@@ -4,6 +4,7 @@ using Entities.Movement.MovementStrategies;
 using Entities.Stats;
 using Inputs;
 using UnityEngine;
+using Utils.ZenjectExtras;
 using Zenject;
 
 namespace Infrastructure.SceneMonoInstallers
@@ -13,6 +14,8 @@ namespace Infrastructure.SceneMonoInstallers
         [SerializeField] private StartEntityStats startEntityStats;
         public override void InstallBindings()
         {
+            Container.AddCancellationTokenFromTransformOnRoot();
+            
             // Binds stats
             Container.Bind<StartEntityStats>().FromInstance(startEntityStats).AsCached();
             Container.Bind<EntityStats>().AsCached();
@@ -21,13 +24,16 @@ namespace Infrastructure.SceneMonoInstallers
             Container.BindInterfacesAndSelfTo<TrapsInput>().FromComponentInHierarchy().AsCached();
             Container.Bind<HitInput>().FromComponentInHierarchy().AsCached();
             Container.Bind<IPlayerInput>().FromComponentInHierarchy().AsCached();
+            Container.Bind<DamageInput>().FromComponentInHierarchy().AsCached();
             
             // Binds outputs
             Container.BindInterfacesAndSelfTo<MovementOutput>().FromComponentInHierarchy().AsCached();
             
             // Binds movement strategies
             Container.BindInterfacesAndSelfTo<PlayerInputMovementStrategy>().AsCached();
+            Container.BindInterfacesAndSelfTo<KnockBackVelocityEffector>().AsCached();
             Container.BindInterfacesAndSelfTo<DirtyTrapVelocityEffector>().AsCached();
+            Container.BindInterfacesAndSelfTo<LeavesTrapProcessor>().AsCached();
             Container.BindInterfacesAndSelfTo<MovementController>().AsCached().NonLazy();
         }
     }

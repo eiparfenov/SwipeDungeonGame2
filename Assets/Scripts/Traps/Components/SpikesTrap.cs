@@ -1,12 +1,13 @@
 ﻿using Entities.Components;
 using Entities.DataObjects;
+using Maze.Rooms;
 using Traps.Interfaces;
 using UnityEngine;
 using Utils.Extensions;
 
 namespace Traps.Components
 {
-    public class SpikesTrap: MonoBehaviour
+    public class SpikesTrap: RoomInteractiveBehaviour
     {
         [SerializeField] private Sprite idle;
         [SerializeField] private Sprite attack;
@@ -28,7 +29,7 @@ namespace Traps.Components
         private async void OnTriggerEnter2D(Collider2D col)
         {
             if(_loaded) return;
-            var spikesTrapHandler = col.GetComponent<ISpiresTrapHandler>();
+            var spikesTrapHandler = col.GetComponent<ISpikesTrapHandler>();
             if(spikesTrapHandler == null || !spikesTrapHandler.TriggersSpikesTrap) return;
 
             _loaded = true;

@@ -18,10 +18,5 @@ namespace Maze.Rooms
         }
     }
 
-    [Serializable]
-    public class RoomContentInfo
-    {
-        [field: SerializeField] public Guid RoomBehaviour { get; init; }
-        [field: SerializeField] public Vector2 Position { get; init; }
-    }
+    
 }

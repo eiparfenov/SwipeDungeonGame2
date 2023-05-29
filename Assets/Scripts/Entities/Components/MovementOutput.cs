@@ -16,5 +16,10 @@ namespace Entities.Components
         {
             _rb.velocity = velocity;
         }
+
+        public void ApplyPosition(Vector2 position)
+        {
+            transform.position = position;
+        }
     }
 }

@@ -1,9 +1,10 @@
-﻿using Traps.Interfaces;
+﻿using Maze.Rooms;
+using Traps.Interfaces;
 using UnityEngine;
 
 namespace Traps.Components
 {
-    public class DirtyTrap: MonoBehaviour
+    public class DirtyTrap: RoomInteractiveBehaviour
     {
         [Tooltip("Multiplies entities speed by this value, when entity is on this trap")]
         [SerializeField] private float speedK;

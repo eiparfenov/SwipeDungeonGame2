@@ -15,7 +15,7 @@ namespace Entities.Movement.MovementStrategies
         }
 
         private float _speedK = 1;
-        public int Order => 1;
+        public int Order => 2;
         public void GetVelocity(ref Vector3 velocity)
         {
             velocity *= _speedK;
@@ -23,24 +23,24 @@ namespace Entities.Movement.MovementStrategies
 
         public void Initialize()
         {
-            _dirtyTrapInput.onTrapExit += DirtyTrapInputOnTrapExit;
-            _dirtyTrapInput.onTrapEnter += DirtyTrapInputOnTrapEnter;
+            _dirtyTrapInput.onDirtyTrapExit += DirtyDirtyTrapInputOnDirtyTrapExit;
+            _dirtyTrapInput.onDirtyTrapEnter += DirtyDirtyTrapInputOnDirtyTrapEnter;
         }
 
-        private void DirtyTrapInputOnTrapEnter(float speedK)
+        private void DirtyDirtyTrapInputOnDirtyTrapEnter(float speedK)
         {
             _speedK *= speedK;
         }
 
-        private void DirtyTrapInputOnTrapExit(float speedK)
+        private void DirtyDirtyTrapInputOnDirtyTrapExit(float speedK)
         {
             _speedK /= speedK;
         }
 
         public void Dispose()
         {
-            _dirtyTrapInput.onTrapExit -= DirtyTrapInputOnTrapExit;
-            _dirtyTrapInput.onTrapEnter -= DirtyTrapInputOnTrapEnter;
+            _dirtyTrapInput.onDirtyTrapExit -= DirtyDirtyTrapInputOnDirtyTrapExit;
+            _dirtyTrapInput.onDirtyTrapEnter -= DirtyDirtyTrapInputOnDirtyTrapEnter;
         }
     }
 }

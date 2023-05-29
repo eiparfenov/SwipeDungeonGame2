@@ -1,4 +1,5 @@
-﻿using Utils.LiveData;
+﻿using UnityEngine;
+using Utils.LiveData;
 using Zenject;
 
 namespace Entities.Stats
@@ -13,6 +14,7 @@ namespace Entities.Stats
         public MutableLiveData<float> KnockBack { get; } = new();
         public MutableLiveData<float> Health { get; } = new();
         public MutableLiveData<int> Coins { get; } = new();
+        public MutableLiveData<Vector2> Velocity { get; } = new();
 
         [Inject]
         public EntityStats(StartEntityStats startPlayerStats)

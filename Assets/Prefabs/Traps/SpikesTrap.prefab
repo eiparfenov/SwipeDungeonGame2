@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3591986051469255404}
   - component: {fileID: 3591986051469255405}
-  - component: {fileID: 3591986051469255406}
   - component: {fileID: 3591986051469255407}
+  - component: {fileID: 6080707027164950991}
   m_Layer: 0
   m_Name: SpikesTrap
   m_TagString: Untagged
@@ -86,23 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3591986051469255406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3591986051469255400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35f2e3079dc44ae28317a3a85f7b8af7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idle: {fileID: -337119749, guid: a567ab6be20b24f4daf069f0b6cd1c6a, type: 3}
-  attack: {fileID: -1164032943, guid: a567ab6be20b24f4daf069f0b6cd1c6a, type: 3}
-  damage: 3
-  delayAfterStep: 1
-  delayAfterAttack: 0.1
 --- !u!61 &3591986051469255407
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -129,3 +112,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6080707027164950991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591986051469255400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35f2e3079dc44ae28317a3a85f7b8af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedGuid: 2149f490-2c6a-412c-ae7b-3244f5641790
+  idle: {fileID: -337119749, guid: a567ab6be20b24f4daf069f0b6cd1c6a, type: 3}
+  attack: {fileID: -1164032943, guid: a567ab6be20b24f4daf069f0b6cd1c6a, type: 3}
+  damage: 1
+  delayAfterStep: 1
+  delayAfterAttack: 0.1

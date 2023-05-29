@@ -201,9 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba2a44e707a4ae09080aaa1cef18ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementOutput: {fileID: 804211217}
-  playerInputPanel: {fileID: 1821361274}
-  hitInput: {fileID: 804211220}
   startEntityStats:
     <Health>k__BackingField: 0
     <Speed>k__BackingField: 3
@@ -325,6 +322,8 @@ GameObject:
   - component: {fileID: 804211218}
   - component: {fileID: 804211217}
   - component: {fileID: 804211220}
+  - component: {fileID: 804211221}
+  - component: {fileID: 804211222}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -458,6 +457,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bce212711e384f1a855ec51cace1ed03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &804211221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804211214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2161d1adf7d4682b183aa74ad498c52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <TriggersSpikesTrap>k__BackingField: 1
+--- !u!114 &804211222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804211214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21df577de10c4ddfb3f3212a7cff2d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1821361270

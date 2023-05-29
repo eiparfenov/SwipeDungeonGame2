@@ -15,7 +15,7 @@ namespace Entities.Movement
         [Inject]
         public MovementController(List<IMovementStrategy> movementStrategies, MovementOutput movementOutput)
         {
-            _movementStrategies = movementStrategies.OrderByDescending(x => x.Order).ToList();
+            _movementStrategies = movementStrategies.OrderBy(x => x.Order).ToList();
             _movementOutput = movementOutput;
         }
 

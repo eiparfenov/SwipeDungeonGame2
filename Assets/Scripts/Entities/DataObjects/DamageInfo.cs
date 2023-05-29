@@ -2,5 +2,10 @@
 
 namespace Entities.DataObjects
 {
-    public record DamageInfo(float Damage, float KnockBack, Vector3 Normal);
+    public class DamageInfo
+    {
+        public float Damage { get; init; }
+        public float KnockBack { get; init; } 
+        public Vector3 Normal { get; init; }
+    }
 }

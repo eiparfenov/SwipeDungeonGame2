@@ -3,6 +3,7 @@ using Entities.Movement;
 using Entities.Movement.MovementStrategies;
 using Entities.Stats;
 using Inputs;
+using Maze;
 using UnityEngine;
 using Utils.ZenjectExtras;
 using Zenject;
@@ -30,11 +31,15 @@ namespace Infrastructure.SceneMonoInstallers
             Container.BindInterfacesAndSelfTo<MovementOutput>().FromComponentInHierarchy().AsCached();
             
             // Binds movement strategies
+            Container.BindInterfacesAndSelfTo<MovementLockOnRoomChange>().AsCached();
             Container.BindInterfacesAndSelfTo<PlayerInputMovementStrategy>().AsCached();
             Container.BindInterfacesAndSelfTo<KnockBackVelocityEffector>().AsCached();
             Container.BindInterfacesAndSelfTo<DirtyTrapVelocityEffector>().AsCached();
             Container.BindInterfacesAndSelfTo<LeavesTrapProcessor>().AsCached();
             Container.BindInterfacesAndSelfTo<MovementController>().AsCached().NonLazy();
+            
+            // Binds camera mover
+            Container.BindInterfacesAndSelfTo<CameraMover>().AsCached().NonLazy();
         }
     }
 }

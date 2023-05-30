@@ -19,5 +19,39 @@ namespace Utils.Extensions
             }
             catch (OperationCanceledException e) { }
         }
+
+        public static async UniTask WaitForAction(Func<Action> actionGetter, PlayerLoopTiming playerLoopTiming = PlayerLoopTiming.Update, CancellationToken cancellationToken = default)
+        {
+            var action = actionGetter();
+            
+            var finished = false;
+            var finishedAction = new Action(() => finished = true);
+            action += finishedAction;
+
+            await ContinueOnCancel(() => UniTask.WaitUntil(() => finished, playerLoopTiming, cancellationToken));
+            action -= finishedAction;
+        }
+
+        public static async UniTask<T> WaitForNewValue<T>(Func<Action<T>> actionGetter, Predicate<T> predicate = null,
+            PlayerLoopTiming playerLoopTiming = PlayerLoopTiming.Update, CancellationToken cancellationToken = default)
+        {
+            var action = actionGetter();
+            
+            var finished = false;
+            T result = default;
+            var finishedAction = new Action<T>(value =>
+            {
+                if (predicate == null || predicate(value))
+                {
+                    result = value;
+                    finished = true;
+                }
+            });
+            action += finishedAction;
+
+            await ContinueOnCancel(() => UniTask.WaitUntil(() => finished, playerLoopTiming, cancellationToken));
+            action -= finishedAction;
+            return result;
+        }
     }
 }

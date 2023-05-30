@@ -5,6 +5,7 @@ using Cysharp.Threading.Tasks;
 using Infrastructure.MazeInstallers;
 using Maze.Generation;
 using Shared;
+using Utils.Extensions;
 using Zenject;
 
 namespace Maze.Rooms
@@ -14,15 +15,17 @@ namespace Maze.Rooms
         private readonly SignalBus _signalBus;
         private readonly MazeGenerator _mazeGenerator;
         private readonly RoomFactory _roomFactory;
+        private readonly GlobalSettings _globalSettings;
 
         private List<RoomInfo> _createdRooms;
         private Room _currentRoom;
 
-        public MazeMainLoop(SignalBus signalBus, MazeGenerator mazeGenerator, RoomFactory roomFactory)
+        public MazeMainLoop(SignalBus signalBus, MazeGenerator mazeGenerator, RoomFactory roomFactory, GlobalSettings globalSettings)
         {
             _signalBus = signalBus;
             _mazeGenerator = mazeGenerator;
             _roomFactory = roomFactory;
+            _globalSettings = globalSettings;
         }
 
         public void Initialize()
@@ -39,7 +42,7 @@ namespace Maze.Rooms
             _signalBus.Fire(new RoomChanged(_currentRoom.RoomInfo.Position, nextRoomInfo.Position));
     
             var nextRoom = _roomFactory.Create(new RoomCreationDto(nextRoomInfo));
-            await UniTask.Delay(1000);
+            await UniTaskExt.Delay(_globalSettings.RoomExitTime);
             _currentRoom.Dispose();
             _currentRoom = nextRoom;
             _currentRoom.onRoomExited += RoomOnExit;
@@ -47,7 +50,7 @@ namespace Maze.Rooms
 
         public void Dispose()
         {
-            
+            _currentRoom.onRoomExited -= RoomOnExit;
         }
     }
 }

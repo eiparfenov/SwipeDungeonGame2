@@ -1,4 +1,5 @@
 ﻿using Infrastructure.MazeInstallers;
+using Maze;
 using Maze.Generation;
 using Maze.Rooms;
 using UnityEngine;

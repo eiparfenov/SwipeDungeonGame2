@@ -9,6 +9,7 @@ namespace Infrastructure.SceneMonoInstallers
         {
             SignalBusInstaller.Install(Container);
             Container.DeclareSignal<RoomChanged>().OptionalSubscriber();
+            Container.DeclareSignal<PlayerDied>().OptionalSubscriber();
         }
     }
 }

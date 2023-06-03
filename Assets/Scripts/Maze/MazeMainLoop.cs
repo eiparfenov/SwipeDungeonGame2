@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Cysharp.Threading.Tasks;
 using Infrastructure.MazeInstallers;
 using Maze.Generation;
+using Maze.Rooms;
 using Shared;
 using Utils.Extensions;
 using Zenject;
 
-namespace Maze.Rooms
+namespace Maze
 {
     public class MazeMainLoop: IInitializable, IDisposable
     {
@@ -39,6 +39,7 @@ namespace Maze.Rooms
         {
             _currentRoom.onRoomExited -= RoomOnExit;
             var nextRoomInfo = _createdRooms.FirstOrDefault(room => room.Position == _currentRoom.RoomInfo.Position + side.SideDirectionsInt());
+            if (nextRoomInfo == null) return;
             _signalBus.Fire(new RoomChanged(_currentRoom.RoomInfo.Position, nextRoomInfo.Position));
     
             var nextRoom = _roomFactory.Create(new RoomCreationDto(nextRoomInfo));

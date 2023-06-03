@@ -21,7 +21,7 @@ namespace Infrastructure.MazeInstallers
             Container.AddCancellationTokenFromTransformOnRoot();
             Container.Bind<RoomBackground>().FromComponentInHierarchy().AsCached();
             Container.Bind<RoomSide>().FromComponentsInHierarchy().AsCached();
-            Container.BindInterfacesAndSelfTo<RoomCustomizer>().AsCached();
+            Container.BindInterfacesAndSelfTo<RoomWallsCustomizer>().AsCached();
             Container.BindInterfacesAndSelfTo<Room>().AsCached();
             Container.AddZenjectDynamicInterfaces();
         }

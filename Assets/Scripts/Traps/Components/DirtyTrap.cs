@@ -1,4 +1,5 @@
-﻿using Maze.Rooms;
+﻿using Maze.Components;
+using Maze.Rooms;
 using Traps.Interfaces;
 using UnityEngine;
 

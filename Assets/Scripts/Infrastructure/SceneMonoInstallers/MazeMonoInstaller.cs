@@ -26,7 +26,10 @@ namespace Infrastructure.SceneMonoInstallers
                 .UnderTransformGroup("Rooms");
             
             Container.BindInterfacesAndSelfTo<MazeGenerator>().AsCached();
-            Container.BindInterfacesAndSelfTo<MazeMainLoop>().AsCached().NonLazy();
+            Container.BindInterfacesAndSelfTo<DebugMazeMainLoop>().AsCached().NonLazy();
+            
+            // Binds camera mover
+            Container.BindInterfacesAndSelfTo<CameraMover>().AsCached().NonLazy();
         }
     }
 }

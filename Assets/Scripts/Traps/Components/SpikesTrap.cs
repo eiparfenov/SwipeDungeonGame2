@@ -1,5 +1,6 @@
 ﻿using Entities.Components;
 using Entities.DataObjects;
+using Maze.Components;
 using Maze.Rooms;
 using Traps.Interfaces;
 using UnityEngine;

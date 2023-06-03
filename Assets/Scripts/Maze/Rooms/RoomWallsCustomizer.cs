@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Maze.Rooms
 {
-    public class RoomCustomizer: IInitializable
+    public class RoomWallsCustomizer: IInitializable
     {
         private readonly RoomInfo _roomInfo;
         private readonly MazeTheme _mazeTheme;
@@ -15,7 +15,7 @@ namespace Maze.Rooms
         private readonly RoomBackground _roomBackground;
         
 
-        public RoomCustomizer(RoomInfo roomInfo, MazeTheme mazeTheme, List<RoomSide> roomSides, RoomBackground roomBackground)
+        public RoomWallsCustomizer(RoomInfo roomInfo, MazeTheme mazeTheme, List<RoomSide> roomSides, RoomBackground roomBackground)
         {
             _roomInfo = roomInfo;
             _mazeTheme = mazeTheme;

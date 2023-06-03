@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Maze.Rooms
@@ -8,7 +9,7 @@ namespace Maze.Rooms
     {
         [field: SerializeField] public int[] SelectedWall { get; init; }
         [field: SerializeField] public int[] SelectedGate { get; init; }
-        [field: SerializeField] public RoomContentInfo[] RoomContents { get; init; }
+        [field: SerializeField] public List<RoomContentInfo> RoomContents { get; init; }
 
         public RoomInfo(MazeCell baseCell)
         {

@@ -37,9 +37,6 @@ namespace Infrastructure.SceneMonoInstallers
             Container.BindInterfacesAndSelfTo<DirtyTrapVelocityEffector>().AsCached();
             Container.BindInterfacesAndSelfTo<LeavesTrapProcessor>().AsCached();
             Container.BindInterfacesAndSelfTo<MovementController>().AsCached().NonLazy();
-            
-            // Binds camera mover
-            Container.BindInterfacesAndSelfTo<CameraMover>().AsCached().NonLazy();
         }
     }
 }

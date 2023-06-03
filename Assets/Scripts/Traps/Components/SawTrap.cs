@@ -2,6 +2,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Entities.Components;
+using Maze.Components;
 using Maze.Rooms;
 using Traps.Interfaces;
 using UnityEngine;

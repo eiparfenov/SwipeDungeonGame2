@@ -32,5 +32,40 @@ namespace Utils.Extensions
                 action(t);
             }
         }
+
+        public static TItem ItemWithMax<TItem, TValue>(this IEnumerable<TItem> source, Func<TItem, TValue> comparer) where TValue: IComparable
+        {
+            if (source == null) return default;
+            var arr = source.ToArray();
+            
+            if (arr.Length == 0) return default;
+            var max = arr[0];
+            foreach (var item in arr)
+            {
+                if (comparer(max).CompareTo(comparer(item)) < 0)
+                {
+                    max = item;
+                }
+            }
+
+            return max;
+        }
+        public static TItem ItemWithMin<TItem, TValue>(this IEnumerable<TItem> source, Func<TItem, TValue> comparer) where TValue: IComparable
+        {
+            if (source == null) return default;
+            var arr = source.ToArray();
+            
+            if (arr.Length == 0) return default;
+            var min = arr[0];
+            foreach (var item in arr)
+            {
+                if (comparer(min).CompareTo(comparer(item)) > 0)
+                {
+                    min = item;
+                }
+            }
+
+            return min;
+        }
     }
 }

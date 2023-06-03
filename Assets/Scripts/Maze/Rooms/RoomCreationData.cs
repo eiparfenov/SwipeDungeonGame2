@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Maze.Components;
 using NaughtyAttributes;
 using UnityEngine;
 

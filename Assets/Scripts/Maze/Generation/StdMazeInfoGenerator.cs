@@ -63,26 +63,27 @@ namespace Maze.Generation
 
             foreach (var endRoom in endRooms)  
             {
-                var cellToAdd = mazeCells.Where(cell => cell.IsCorner)
-                    .ItemWithMax();
+                var cellToAdd = mazeCells
+                    .Where(cell => cell.IsCorner)
+                    .ItemWithMax(x => x.Depth) ?? mazeCells.ItemWithMax(x => x.Depth);
                 mazeCells.Remove(cellToAdd);
                 result.Add(new RoomInfo(cellToAdd)
                 {
                     SelectedGate = new []
                     {
-                        GateWallId(startRoom.RoomCreationData.GateId),
-                        GateWallId(startRoom.RoomCreationData.GateId),
-                        GateWallId(startRoom.RoomCreationData.GateId),
-                        GateWallId(startRoom.RoomCreationData.GateId),
+                        GateWallId(endRoom.RoomCreationData.GateId),
+                        GateWallId(endRoom.RoomCreationData.GateId),
+                        GateWallId(endRoom.RoomCreationData.GateId),
+                        GateWallId(endRoom.RoomCreationData.GateId),
                     },
                     SelectedWall = new[]
                     {
-                        GateWallId(startRoom.RoomCreationData.WallId),
-                        GateWallId(startRoom.RoomCreationData.WallId),
-                        GateWallId(startRoom.RoomCreationData.WallId),
-                        GateWallId(startRoom.RoomCreationData.WallId),
+                        GateWallId(endRoom.RoomCreationData.WallId),
+                        GateWallId(endRoom.RoomCreationData.WallId),
+                        GateWallId(endRoom.RoomCreationData.WallId),
+                        GateWallId(endRoom.RoomCreationData.WallId),
                     },
-                    RoomContents = startRoom.RoomCreationData.RoomContentInfos.ToList(),
+                    RoomContents = endRoom.RoomCreationData.RoomContentInfos.ToList(),
                 });
             }
 
